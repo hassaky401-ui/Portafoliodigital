@@ -1,3 +1,4 @@
+ HEAD
 # Portafolio Digital de Mario Rosario Bello
 
 Este es el portafolio digital de Mario Rosario Bello, que presenta una serie de secciones dedicadas a la multimedia y sus aplicaciones. A continuación se detallan las secciones incluidas en este portafolio.
@@ -44,3 +45,7 @@ portafolio-mario-rosario-bello
 - JavaScript
 
 Este portafolio es un recurso interactivo que permite a los usuarios aprender sobre multimedia y sus aplicaciones en el mundo digital.
+=======
+# Portafoliodigital
+Portafolio con fines de estudio
+ e0e09092c8c2a1a4e8938e01d69af1daa41e1a09
