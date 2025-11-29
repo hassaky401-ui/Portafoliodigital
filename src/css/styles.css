@@ -1002,14 +1002,3 @@ main, header, footer, .section {
   .logo { flex: 0 0 auto; }
 }
 
-/* Very small screens — compact logo and nav */
-@media (max-width: 520px) {
-  .logo-photo { width: 52px; height: 68px; }
-  .logo-text h1 { font-size: 16px; white-space: normal; overflow: visible; text-overflow: clip; }
-  .nav a { font-size: 13px; padding: 8px 10px; }
-}
-
-/* Accessibility: visible focus */
-.mobile-toggle:focus, .nav a:focus { outline: 2px solid var(--accent); outline-offset: 2px; }
-
-/* ...existing code... */
