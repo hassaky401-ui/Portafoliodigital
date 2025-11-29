@@ -1,51 +1,110 @@
- HEAD
 # Portafolio Digital de Mario Rosario Bello
 
-Este es el portafolio digital de Mario Rosario Bello, que presenta una serie de secciones dedicadas a la multimedia y sus aplicaciones. A continuación se detallan las secciones incluidas en este portafolio.
+Este es el portafolio digital de Mario Rosario Bello, que presenta una serie de secciones dedicadas a la multimedia, hipermedia, educación digital y desarrollo personal.
 
 ## Estructura del Proyecto
 
-El proyecto está organizado de la siguiente manera:
-
 ```
-portafolio-mario-rosario-bello
-├── src
-│   ├── index.html               # Archivo principal HTML
-│   ├── css
-│   │   └── styles.css           # Estilos para el portafolio
-│   ├── js
-│   │   └── main.js              # Código JavaScript para interactividad
-│   └── sections
-│       ├── 01-introduccion.html # Sección: Introducción a la multimedia
-│       ├── 02-concepto-hipermedia.html # Sección: Concepto de multimedia e hipermedia
-│       ├── 03-diseno-multimedia.html # Sección: Diseño multimedia
-│       ├── 04-diseno-presentacion.html # Sección: Diseño y producción de presentación multimedia
-│       └── 05-internet-herramientas.html # Sección: Internet, herramientas digitales para comunicadores
-├── public
-│   └── videos
-│       ├── portada.mp4          # Video de portada
-│       ├── introduccion.mp4     # Video para Introducción a la multimedia
-│       ├── concepto-hipermedia.mp4 # Video para Concepto de multimedia e hipermedia
-│       ├── diseno-multimedia.mp4 # Video para Diseño multimedia
-│       ├── diseno-presentacion.mp4 # Video para Diseño y producción de presentación multimedia
-│       └── internet-herramientas.mp4 # Video para Internet, herramientas digitales para comunicadores
-└── README.md                    # Documentación del proyecto
+portafolio-mario-rosario-bello/
+├── index.html                      # Archivo principal
+├── README.md                       # Documentación
+├── .gitattributes
+├── src/
+│   ├── css/
+│   │   └── styles.css             # Estilos del portafolio
+│   ├── js/
+│   │   └── main.js                # Interactividad
+│   ├── images/
+│   │   └── persona.jpeg           # Foto de perfil
+│   └── sections/
+│       ├── 01-introduccion.html
+│       ├── 02-concepto-hipermedia.html
+│       ├── 03-diseno-multimedia.html
+│       ├── 04-diseno-presentacion.html
+│       ├── 05-internet-herramientas.html
+│       ├── 06-herramientas-educativas.html
+│       ├── 07-herramientas-utiles.html
+│       ├── 08-taller-produccion.html
+│       ├── 09-educacion-digital.html
+│       └── 10-desarrollo-personal.html
+└── public/
+    └── videos/
+        ├── portada.mp4
+        ├── introduccion.mp4
+        ├── concepto-hipermedia.mp4
+        ├── diseno-multimedia.mp4
+        ├── diseno-presentacion.mp4
+        ├── internet-herramientas.mp4
+        ├── herramientas-educativas.mp4
+        ├── herramientas-utiles.mp4
+        ├── taller-produccion.mp4
+        ├── educacion-digital.mp4
+        └── desarrollo-personal.mp4
 ```
 
-## Instrucciones para Ejecutar el Proyecto
+## Temas Incluidos
 
-1. **Clonar el Repositorio**: Clona este repositorio en tu máquina local.
-2. **Abrir el Archivo `index.html`**: Navega a la carpeta `src` y abre el archivo `index.html` en tu navegador web.
-3. **Explorar las Secciones**: Utiliza la navegación para explorar cada sección del portafolio y visualizar los videos correspondientes.
+### Secciones Base (1-5)
+1. **Introducción a la Multimedia** - Conceptos básicos y evolución
+2. **Concepto de Multimedia e Hipermedia** - Diferencias y estructuras
+3. **Diseño Multimedia** - Principios visuales y accesibilidad
+4. **Diseño y Producción de Presentación Multimedia** - Proceso completo
+5. **Internet y Herramientas Digitales** - Plataformas para comunicadores
+
+### Secciones Educativas (6-7)
+6. **Herramientas Educativas** - Plataformas LMS y colaboración
+7. **Herramientas Útiles en el Área Educativa** - Creación, evaluación y gestión
+
+### Secciones Avanzadas (8-10)
+8. **Taller de Producción Multimedia** - 4 módulos: preproducción, producción, postproducción y distribución
+9. **Educación Digital: El Futuro del Aprendizaje** - Infografía interactiva futurista
+10. **Desarrollo Personal y Motivación** - Crecimiento y habilidades digitales
+
+## Características
+
+✨ **Diseño Futurista** - Tema cyborg/neon con animaciones
+🎥 **Modal de Videos** - Visualización optimizada de contenido
+📱 **Responsive** - Funciona en todos los dispositivos
+🎨 **Infografía Interactiva** - SVG animado para educación digital
+🔄 **Navegación Suave** - Scroll automático entre secciones
+🎭 **Esquina Interactiva** - Foto de perfil con toggle
 
 ## Tecnologías Utilizadas
 
-- HTML
-- CSS
-- JavaScript
+- **HTML5** - Estructura semántica
+- **CSS3** - Diseño moderno con animaciones y gradientes
+- **JavaScript (ES5)** - Interactividad y control de modales
+- **SVG** - Infografías escalables
 
-Este portafolio es un recurso interactivo que permite a los usuarios aprender sobre multimedia y sus aplicaciones en el mundo digital.
-=======
-# Portafoliodigital
-Portafolio con fines de estudio
- e0e09092c8c2a1a4e8938e01d69af1daa41e1a09
+## Instrucciones de Uso
+
+1. **Clonar el Repositorio**
+```bash
+git clone <url-repositorio>
+```
+
+2. **Abrir el Portafolio**
+- Navega a la carpeta del proyecto
+- Abre `index.html` en tu navegador preferido
+
+3. **Explorar Contenido**
+- Usa la navegación superior para saltar entre secciones
+- Haz clic en los videos para verlos en modal
+- Interactúa con la infografía en la sección 9
+- Usa la foto en la esquina para alternar su visibilidad
+
+## Características de Interactividad
+
+- 🎬 **Sistema de Modales** - Videos en overlay fullscreen
+- 🔄 **Scroll Suave** - Navegación elegante entre secciones
+- 👤 **Toggle de Perfil** - Mostrar/ocultar foto de esquina
+- 🎨 **Efectos Hover** - Animaciones en botones y elementos
+- ⌨️ **Tecla ESC** - Cierra modales de video
+
+## Autor
+
+**Mario Rosario Bello** - Portafolio Multimedia 2025
+
+## Licencia
+
+Este proyecto está bajo licencia libre para fines educativos.
