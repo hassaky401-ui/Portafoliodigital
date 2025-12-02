@@ -5,6 +5,51 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Mario Rosario Bello — Portafolio Multimedia</title>
   <link rel="stylesheet" href="src/css/styles.css">
+  <style>
+    /* Estilos adicionales para los videos */
+    .video-box {
+      position: relative;
+      min-height: 300px;
+      background: #000;
+      border-radius: 8px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+    
+    .video-box .play-icon {
+      position: absolute;
+      z-index: 2;
+      font-size: 60px;
+      color: rgba(255, 255, 255, 0.9);
+      text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+      transition: transform 0.3s;
+    }
+    
+    .video-box:hover .play-icon {
+      transform: scale(1.1);
+    }
+    
+    .video-box video {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+    }
+    
+    .video-section {
+      margin-top: 20px;
+    }
+    
+    .btn {
+      margin-top: 10px;
+    }
+  </style>
 </head>
 <body>
 
@@ -484,9 +529,173 @@
     </div>
   </div>
 
+  <video controls width="100%" style="max-width: 800px;">
+    <source src="videos/diseno-multimedia.mp4" type="video/mp4">
+    Tu navegador no soporta videos HTML5.
+</video>
+
   <script src="src/js/main.js"></script>
 
-
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+      // Manejar todos los videos del portafolio
+      const videoSections = document.querySelectorAll('.video-section');
+      
+      videoSections.forEach(section => {
+          const videoBox = section.querySelector('.video-box');
+          const playIcon = videoBox.querySelector('.play-icon');
+          const playButton = section.querySelector('.btn[data-video]');
+          let currentVideo = null;
+          
+          function playVideo(videoSrc) {
+              // Verificar si ya hay un video reproduciéndose
+              if (currentVideo) {
+                  currentVideo.pause();
+                  currentVideo.remove();
+                  currentVideo = null;
+                  playIcon.style.display = 'block';
+                  return;
+              }
+              
+              // Crear nuevo elemento de video
+              currentVideo = document.createElement('video');
+              currentVideo.src = videoSrc;
+              currentVideo.controls = true;
+              currentVideo.style.width = '100%';
+              currentVideo.style.height = '100%';
+              currentVideo.style.objectFit = 'contain';
+              
+              // Ocultar el ícono de play
+              playIcon.style.display = 'none';
+              
+              // Agregar el video al contenedor
+              videoBox.appendChild(currentVideo);
+              
+              // Intentar reproducir automáticamente
+              currentVideo.play().catch(error => {
+                  console.log("Autoplay no permitido, el usuario debe hacer clic en play");
+              });
+              
+              // Cuando el video termine, mostrar el ícono nuevamente
+              currentVideo.addEventListener('ended', function() {
+                  if (currentVideo) {
+                      currentVideo.remove();
+                      currentVideo = null;
+                      playIcon.style.display = 'block';
+                  }
+              });
+              
+              // Si el usuario pausa manualmente
+              currentVideo.addEventListener('pause', function() {
+                  playIcon.style.display = 'block';
+                  playIcon.innerHTML = '▶';
+              });
+              
+              // Si el usuario reanuda
+              currentVideo.addEventListener('play', function() {
+                  playIcon.style.display = 'none';
+              });
+          }
+          
+          // Hacer clic en el video box
+          videoBox.addEventListener('click', function(e) {
+              if (e.target.tagName !== 'VIDEO' && !e.target.classList.contains('play-icon')) {
+                  const videoSrc = videoBox.getAttribute('data-video');
+                  if (!currentVideo) {
+                      playVideo(videoSrc);
+                  }
+              }
+          });
+          
+          // Hacer clic en el botón
+          if (playButton) {
+              playButton.addEventListener('click', function() {
+                  const videoSrc = this.getAttribute('data-video');
+                  playVideo(videoSrc);
+              });
+          }
+          
+          // Hacer clic en el ícono de play
+          playIcon.addEventListener('click', function(e) {
+              e.stopPropagation();
+              const videoSrc = videoBox.getAttribute('data-video');
+              playVideo(videoSrc);
+          });
+      });
+      
+      // También configurar el video de portada
+      const heroVideoBox = document.querySelector('.hero .video-box');
+      const heroPlayIcon = heroVideoBox?.querySelector('.play-icon');
+      const heroPlayButton = document.querySelector('.hero .btn[data-video]');
+      
+      if (heroVideoBox && heroPlayIcon) {
+          let heroVideo = null;
+          
+          function playHeroVideo(videoSrc) {
+              if (heroVideo) {
+                  heroVideo.pause();
+                  heroVideo.remove();
+                  heroVideo = null;
+                  heroPlayIcon.style.display = 'block';
+                  return;
+              }
+              
+              heroVideo = document.createElement('video');
+              heroVideo.src = videoSrc;
+              heroVideo.controls = true;
+              heroVideo.style.width = '100%';
+              heroVideo.style.height = '100%';
+              heroVideo.style.objectFit = 'contain';
+              
+              heroPlayIcon.style.display = 'none';
+              heroVideoBox.appendChild(heroVideo);
+              
+              heroVideo.play().catch(error => {
+                  console.log("Autoplay no permitido");
+              });
+              
+              heroVideo.addEventListener('ended', function() {
+                  if (heroVideo) {
+                      heroVideo.remove();
+                      heroVideo = null;
+                      heroPlayIcon.style.display = 'block';
+                  }
+              });
+              
+              heroVideo.addEventListener('pause', function() {
+                  heroPlayIcon.style.display = 'block';
+                  heroPlayIcon.innerHTML = '▶';
+              });
+              
+              heroVideo.addEventListener('play', function() {
+                  heroPlayIcon.style.display = 'none';
+              });
+          }
+          
+          heroVideoBox.addEventListener('click', function(e) {
+              if (e.target.tagName !== 'VIDEO' && !e.target.classList.contains('play-icon')) {
+                  const videoSrc = heroVideoBox.getAttribute('data-video');
+                  if (!heroVideo) {
+                      playHeroVideo(videoSrc);
+                  }
+              }
+          });
+          
+          if (heroPlayButton) {
+              heroPlayButton.addEventListener('click', function() {
+                  const videoSrc = this.getAttribute('data-video');
+                  playHeroVideo(videoSrc);
+              });
+          }
+          
+          heroPlayIcon.addEventListener('click', function(e) {
+              e.stopPropagation();
+              const videoSrc = heroVideoBox.getAttribute('data-video');
+              playHeroVideo(videoSrc);
+          });
+      }
+  });
+  </script>
   
 </body>
 </html>
